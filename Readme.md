@@ -16,6 +16,25 @@ OpenAI Gym is a toolkit for developing and comparing reinforcement learning algo
 - Download an IDE for R such as [RStudio](https://www.rstudio.com/products/rstudio/download/)
 - Install and start coding
 
-### Resoucres
+#### Install packages with R
+
+If you have RStudio, you can go on the bottom right panel and click on Packages > install as specified [here](http://derekogle.com/IFAR/supplements/installations/InstallPackagesRStudio.html)
+
+Or directly with R:
+
+```R
+# Install the package
+install.packages("packageName")
+
+# Load the library for the current script
+library(packageName)
+```
+
+### Learning R
+
+- [Quick R](http://www.statmethods.net/index.html)
+- [DataCamp](https://www.datacamp.com/courses/free-introduction-to-r)
+
+### Resources
 
 - [Kaggle](https://www.kaggle.com/wiki/Tutorials) for data science
