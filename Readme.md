@@ -34,7 +34,9 @@ library(packageName)
 
 - [Quick R](http://www.statmethods.net/index.html)
 - [DataCamp](https://www.datacamp.com/courses/free-introduction-to-r)
+- [Working with data frames](https://en.wikibooks.org/wiki/R_Programming/Working_with_data_frames)
+- [R cookbook](http://www.cookbook-r.com/)
 
 ### Resources
 
-- [Kaggle](https://www.kaggle.com/wiki/Tutorials) for data science
+- [Kaggle](https://www.kaggle.com/wiki/Tutorials) for data science competition
