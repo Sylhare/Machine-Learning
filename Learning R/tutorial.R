@@ -52,3 +52,6 @@ some_vector[1]
 c(1, 2, 3) + c(4, 5, 6)
 c(1 + 4, 2 + 5, 3 + 6)
 c(5, 7, 9)
+
+# Construct a matrix with 3 rows that contain the numbers 1 up to 9, filled by row
+matrix(1:9, byrow = TRUE, nrow = 3)
