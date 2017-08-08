@@ -53,5 +53,14 @@ c(1, 2, 3) + c(4, 5, 6)
 c(1 + 4, 2 + 5, 3 + 6)
 c(5, 7, 9)
 
+A_vector <- c(1, 2, 3)
+B_vector <- c(4, 5, 6)
+
+# Take the sum of A_vector and B_vector
+total_vector <- A_vector + B_vector
+  
+# Print out total_vector
+total_vector
+
 # Construct a matrix with 3 rows that contain the numbers 1 up to 9, filled by row
 matrix(1:9, byrow = TRUE, nrow = 3)
