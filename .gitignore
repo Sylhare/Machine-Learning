@@ -7,8 +7,8 @@ Desktop.ini
 
 #Ignoring folders
 Open AI/
-resources/MIT229 - Machine Learning/quizes
-resources/MIT229 - Machine Learning/slides
+resources/MIT229 - Machine Learning/quizes/
+resources/MIT229 - Machine Learning/slides/
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -54,3 +54,4 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
