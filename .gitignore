@@ -5,6 +5,11 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+#Ignoring folders
+Open AI/
+resources/MIT229 - Machine Learning/quizes
+resources/MIT229 - Machine Learning/slides
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
