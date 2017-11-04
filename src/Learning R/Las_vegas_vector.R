@@ -1,3 +1,8 @@
+#' ---
+#' title: "Las_vegas_vector"
+#' source: DataCamp
+#' ---
+
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 

@@ -1,8 +1,25 @@
+#' ---
+#' title: "mtcars_dataframe"
+#' description : "Exploration of the titanic data"
+#' ---
+
+
+# ---------------------
+#    Librairies 
+# ---------------------
+
+# Installing the required librairies
+install.packages('ggplot2')
+install.packages('dplyr') 
+install.packages('ggthemes') 
+install.packages('randomForest') 
+
 # librairies
 library('ggplot2') # visualization
 library('dplyr') # data manipulation
 library('ggthemes') # visualization
 library('randomForest') # classification algorithm
+
 
 # ---------------------
 #    Titanic Data 
@@ -23,8 +40,8 @@ library('randomForest') # classification algorithm
 # Embarked      | Port of embarkation
 
 # Load data
-train <- read.csv("../data/Titanic/train.csv", stringsAsFactors=FALSE)
-test  <- read.csv("../data/Titanic/test.csv",  stringsAsFactors=FALSE)
+train <- read.csv("../../data/Titanic/train.csv", stringsAsFactors=FALSE)
+test  <- read.csv("../../data/Titanic/test.csv",  stringsAsFactors=FALSE)
 
 # bind training & test data to create a better model that will better perform
 full  <- bind_rows(train, test) 
@@ -39,11 +56,11 @@ str(full)
 summary(full)
 
 # Show any numerical missing values (1=observed, 0=missing)
-md.pattern(full)
+md.pattern(full) #Warning NAs introduced by Coercicion
 
 
 # ---------------------
-#        Title (new)
+#      Title (new)
 # ---------------------
 
 # Grab title from passenger names
@@ -68,7 +85,7 @@ filter(full, Title <= "Master")
 
 
 # ---------------------
-#        Family (new)
+#     Family (new)
 # ---------------------
 
 # Create a family size variable including the passenger themselves
@@ -93,13 +110,13 @@ tapply(full$Age, full$Title,median, na.rm=TRUE)
 # Sum of age with NA
 sum(is.na(full$Age))
 
-# Create a vector with th median age per titles and replace the na in age.
+# Create a vector with the median age per titles and replace the na in age.
 title.age <- aggregate(full$Age,by = list(full$Title), FUN = function(x) median(x, na.rm = T))
 full[is.na(full$Age), "Age"] <- apply(full[is.na(full$Age), ] , 1, function(x) title.age[title.age[, 1]==x["Title"], 2]) 
 
 
 # ---------------------
-#        Child (new)
+#     Child (new)
 # ---------------------
 
 # Creates a Child column that will say if the passenger is a child or not
@@ -127,6 +144,44 @@ tapply(full$Fare, full$Pclass,median, na.rm=TRUE)
 
 # Replace NA value by the mean Fare based on their PClass
 full[is.na(full$Fare), "Fare"] <-  median(full[full$Pclass, ]$Fare, na.rm = TRUE)
+
+
+# ---------------------
+#    Creating model
+# ---------------------
+
+# Set a random seed, to get same results
+set.seed(144)
+
+# Build the model (note: not all possible variables are used)
+rf_model <- randomForest(factor(Survived) ~ Pclass + Sex + Age + Fare + Embarked + Title + FsizeD + Child,
+                         data = full)
+
+# Get importance of each variable for the random forest algorithm by calculating the mean decrease in Gini coefficient.
+# Each time a particular variable is used to split a node, 
+# the Gini coefficient for the child nodes are calculated and compared to that of the original node. 
+# The Gini coefficient is a measure of homogeneity from 0 (homogeneous) to 1 (heterogeneous).
+importance    <- importance(rf_model)
+varImportance <- data.frame(Variables = row.names(importance), 
+                            Importance = round(importance[ ,'MeanDecreaseGini'],2))
+
+# Create a rank variable based on importance
+rankImportance <- varImportance %>%
+  mutate(Rank = paste0('#',dense_rank(desc(Importance))))
+
+
+# ---------------------
+#     Prediction
+# ---------------------
+
+# Predict using the test set
+prediction <- predict(rf_model, test)
+
+# Save the solution to a dataframe with two columns: PassengerId and Survived (prediction)
+solution <- data.frame(PassengerID = test$PassengerId, Survived = prediction)
+
+# Write the solution to file
+write.csv(solution, file = 'rf_solution.csv', row.names = F)
 
 
 # ---------------------
@@ -191,5 +246,21 @@ ggplot(full,
   ggtitle("Pclass")+
   ylab("Density") +
   theme_few()
+
+# Show model error
+plot(rf_model, ylim=c(0,0.36))
+legend('topright', colnames(rf_model$err.rate), col=1:3, fill=1:3)
+
+# Visualize the relative importance of variables by plotting the mean decrease in Gini calculated across all trees
+ggplot(rankImportance, aes(x = reorder(Variables, Importance), 
+                           y = Importance, fill = Importance)) +
+  geom_bar(stat='identity') + 
+  geom_text(aes(x = Variables, y = 0.5, label = Rank),
+            hjust=0, vjust=0.55, size = 4, colour = 'red') +
+  labs(x = 'Variables') +
+  coord_flip() + 
+  theme_few()
+
+
 
 
