@@ -2,11 +2,21 @@
 
 A repository for all related to machine learning.
 
-## Machine Learning with Open AI
+## Machine Learning 
+
+### Sources
+
+Here are some couple resources to get started with machine learning.
+
+- [fast.ai](http://www.fast.ai/)
+- [deeplearning.ai](https://www.deeplearning.ai/)
+- [Choose the machine learning algorithm](https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/?utm_source=linkedin&utm_medium=cpc&utm_campaign=analytics-global&utm_content=US_skills_audience-network)
+
+### Open AI
 
 OpenAI Gym is a toolkit for developing and comparing reinforcement learning algorithms
 
-- Get started [here](https://gym.openai.com/docs)
+- Get started with [Open AI](https://gym.openai.com/docs)
 
 ## Machine Learning with R
 
@@ -48,9 +58,9 @@ Caret provides you with essential tools for:
 
 
 ```R
-model.mtcars_lm <- train(mpg ~ wt
-                        ,data = mtcars
-                        ,method = "lm"
+model.mtcars_lm <- train(mpg ~ wt,
+                         data = mtcars,
+                         method = "lm"
                         )
 ```
 

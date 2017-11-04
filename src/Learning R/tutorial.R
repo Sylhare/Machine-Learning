@@ -1,3 +1,8 @@
+#' ---
+#' title: "tutorial"
+#' source: DataCamp
+#' ---
+
 # An addition
 5 + 5 
 
