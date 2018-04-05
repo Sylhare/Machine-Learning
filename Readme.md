@@ -18,6 +18,14 @@ OpenAI Gym is a toolkit for developing and comparing reinforcement learning algo
 
 - Get started with [Open AI](https://gym.openai.com/docs)
 
+Tests has been made with Open AI v0.6.0 so it might be outdated already since it's evolving quickly check it out at [openai/gym](https://github.com/openai/gym). Try the examples with:
+
+```
+pip install -Iv gym==0.6.0
+```
+
+> It was not tested, check the documentation for more information. I was a bit disappointed with it.
+
 ## Machine Learning with R
 
 ### Set up
