@@ -2,7 +2,7 @@
 
 A repository for all related to machine learning.
 
-![](https://raw.githubusercontent.com/Sylhare/Machine-Learning/master/resources/Images/deep-learning.jpg)
+![](https://raw.githubusercontent.com/Sylhare/Machine-Learning/master/resources/Images/deep-learning-small.jpg)
 
 ## Algorithms
 
