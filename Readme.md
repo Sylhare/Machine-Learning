@@ -2,10 +2,15 @@
 
 A repository for all related to machine learning.
 
+![](https://raw.githubusercontent.com/Sylhare/Machine-Learning/master/resources/Images/deep-learning.jpg)
 
-## Machine Learning Algorithm - R
+## Algorithms
 
-### CARET: Classification And REgression Training
+There are multiple algorithms available for machine learning, here is a cheat sheet, of the one currently available, how to use them and in which situation.
+
+![](https://raw.githubusercontent.com/Sylhare/Machine-Learning/master/resources/Images/machine-learning-cheet-sheet.png)
+
+### CARET: Classification And Regression Training
 
 Caret provides you with essential tools for:
 
@@ -14,7 +19,7 @@ Caret provides you with essential tools for:
 – Model evaluation
 – Variable selection
 
-**Example using R:**
+#### Example using R:
 ```R
 model.mtcars_lm <- train(mpg ~ wt,
                          data = mtcars,
