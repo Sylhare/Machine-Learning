@@ -1,0 +1,8 @@
+function h = h( theta, x )
+%H Summary of this function goes here
+%   Detailed explanation goes here
+
+h = sigmoid(theta * x)
+
+end
+
