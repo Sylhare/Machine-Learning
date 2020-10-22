@@ -61,3 +61,6 @@ Temporary Items
 .apdisk
 .idea/*
 src/.idea/*
+src/PictureEnhancement/env/*
+src/PictureEnhancement/photo_restoration/
+src/PictureEnhancement/.ipynb_checkpoints/*
